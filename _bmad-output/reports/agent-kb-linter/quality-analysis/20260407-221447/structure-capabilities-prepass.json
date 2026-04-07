@@ -1,0 +1,186 @@
+{
+  "scanner": "structure-capabilities-prepass",
+  "script": "prepass-structure-capabilities.py",
+  "version": "1.0.0",
+  "skill_path": "_bmad-output/agent-kb-linter",
+  "timestamp": "2026-04-07T20:15:07.508747+00:00",
+  "status": "warning",
+  "metadata": {
+    "frontmatter": {
+      "name": "agent-kb-linter",
+      "description": "Knowledge Base Wiki Linter \u2014 audits wiki health, finds inconsistencies, broken links, missing content, and suggests improvements. Memory agent that learns quality priorities and false-positive patterns."
+    },
+    "sections": [
+      {
+        "level": 2,
+        "title": "The Three Laws",
+        "line": 10
+      },
+      {
+        "level": 2,
+        "title": "The Sacred Truth",
+        "line": 20
+      },
+      {
+        "level": 2,
+        "title": "On Activation",
+        "line": 24
+      },
+      {
+        "level": 2,
+        "title": "Session Close",
+        "line": 36
+      }
+    ],
+    "is_memory_agent": true
+  },
+  "prompt_details": [
+    {
+      "file": "capability-authoring.md",
+      "has_config_header": false,
+      "has_progression": false
+    },
+    {
+      "file": "consistency-check.md",
+      "has_config_header": false,
+      "has_progression": false
+    },
+    {
+      "file": "first-breath.md",
+      "has_config_header": true,
+      "has_progression": false
+    },
+    {
+      "file": "fix-issues.md",
+      "has_config_header": false,
+      "has_progression": false
+    },
+    {
+      "file": "health-check.md",
+      "has_config_header": false,
+      "has_progression": false
+    },
+    {
+      "file": "memory-guidance.md",
+      "has_config_header": false,
+      "has_progression": false
+    },
+    {
+      "file": "suggest-articles.md",
+      "has_config_header": false,
+      "has_progression": false
+    }
+  ],
+  "memory_paths": [
+    "memory/agent-kb-linter/"
+  ],
+  "issues": [
+    {
+      "file": "SKILL.md",
+      "line": 1,
+      "severity": "medium",
+      "category": "frontmatter",
+      "issue": "Description missing \"Use when...\" trigger phrase"
+    },
+    {
+      "file": "capability-authoring.md",
+      "line": 1,
+      "severity": "medium",
+      "category": "config-header",
+      "issue": "No config header with language variables found"
+    },
+    {
+      "file": "capability-authoring.md",
+      "line": 35,
+      "severity": "high",
+      "category": "progression",
+      "issue": "No progression condition keywords found"
+    },
+    {
+      "file": "consistency-check.md",
+      "line": 1,
+      "severity": "medium",
+      "category": "config-header",
+      "issue": "No config header with language variables found"
+    },
+    {
+      "file": "consistency-check.md",
+      "line": 55,
+      "severity": "high",
+      "category": "progression",
+      "issue": "No progression condition keywords found"
+    },
+    {
+      "file": "first-breath.md",
+      "line": 85,
+      "severity": "high",
+      "category": "progression",
+      "issue": "No progression condition keywords found"
+    },
+    {
+      "file": "fix-issues.md",
+      "line": 1,
+      "severity": "medium",
+      "category": "config-header",
+      "issue": "No config header with language variables found"
+    },
+    {
+      "file": "fix-issues.md",
+      "line": 44,
+      "severity": "high",
+      "category": "progression",
+      "issue": "No progression condition keywords found"
+    },
+    {
+      "file": "health-check.md",
+      "line": 1,
+      "severity": "medium",
+      "category": "config-header",
+      "issue": "No config header with language variables found"
+    },
+    {
+      "file": "health-check.md",
+      "line": 72,
+      "severity": "high",
+      "category": "progression",
+      "issue": "No progression condition keywords found"
+    },
+    {
+      "file": "memory-guidance.md",
+      "line": 1,
+      "severity": "medium",
+      "category": "config-header",
+      "issue": "No config header with language variables found"
+    },
+    {
+      "file": "memory-guidance.md",
+      "line": 62,
+      "severity": "high",
+      "category": "progression",
+      "issue": "No progression condition keywords found"
+    },
+    {
+      "file": "suggest-articles.md",
+      "line": 1,
+      "severity": "medium",
+      "category": "config-header",
+      "issue": "No config header with language variables found"
+    },
+    {
+      "file": "suggest-articles.md",
+      "line": 48,
+      "severity": "high",
+      "category": "progression",
+      "issue": "No progression condition keywords found"
+    }
+  ],
+  "summary": {
+    "total_issues": 14,
+    "by_severity": {
+      "critical": 0,
+      "high": 7,
+      "medium": 7,
+      "low": 0
+    }
+  }
+}

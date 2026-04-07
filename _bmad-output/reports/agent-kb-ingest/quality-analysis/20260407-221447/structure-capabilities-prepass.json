@@ -1,0 +1,174 @@
+{
+  "scanner": "structure-capabilities-prepass",
+  "script": "prepass-structure-capabilities.py",
+  "version": "1.0.0",
+  "skill_path": "_bmad-output/agent-kb-ingest",
+  "timestamp": "2026-04-07T20:15:07.379745+00:00",
+  "status": "warning",
+  "metadata": {
+    "frontmatter": {
+      "name": "agent-kb-ingest",
+      "description": "Knowledge Base Ingest Agent \u2014 takes raw source material (articles, papers, web clippings, images) and normalizes them into clean, indexed Markdown ready for wiki compilation. Memory agent that learns your tagging conventions and categorization preferences."
+    },
+    "sections": [
+      {
+        "level": 2,
+        "title": "The Three Laws",
+        "line": 10
+      },
+      {
+        "level": 2,
+        "title": "The Sacred Truth",
+        "line": 20
+      },
+      {
+        "level": 2,
+        "title": "On Activation",
+        "line": 24
+      },
+      {
+        "level": 2,
+        "title": "Session Close",
+        "line": 36
+      }
+    ],
+    "is_memory_agent": true
+  },
+  "prompt_details": [
+    {
+      "file": "batch-ingest.md",
+      "has_config_header": false,
+      "has_progression": false
+    },
+    {
+      "file": "capability-authoring.md",
+      "has_config_header": false,
+      "has_progression": false
+    },
+    {
+      "file": "first-breath.md",
+      "has_config_header": true,
+      "has_progression": false
+    },
+    {
+      "file": "ingest-source.md",
+      "has_config_header": false,
+      "has_progression": false
+    },
+    {
+      "file": "manage-index.md",
+      "has_config_header": false,
+      "has_progression": false
+    },
+    {
+      "file": "memory-guidance.md",
+      "has_config_header": false,
+      "has_progression": false
+    }
+  ],
+  "memory_paths": [
+    "memory/agent-kb-ingest/"
+  ],
+  "issues": [
+    {
+      "file": "SKILL.md",
+      "line": 1,
+      "severity": "medium",
+      "category": "frontmatter",
+      "issue": "Description missing \"Use when...\" trigger phrase"
+    },
+    {
+      "file": "batch-ingest.md",
+      "line": 1,
+      "severity": "medium",
+      "category": "config-header",
+      "issue": "No config header with language variables found"
+    },
+    {
+      "file": "batch-ingest.md",
+      "line": 34,
+      "severity": "high",
+      "category": "progression",
+      "issue": "No progression condition keywords found"
+    },
+    {
+      "file": "capability-authoring.md",
+      "line": 1,
+      "severity": "medium",
+      "category": "config-header",
+      "issue": "No config header with language variables found"
+    },
+    {
+      "file": "capability-authoring.md",
+      "line": 49,
+      "severity": "high",
+      "category": "progression",
+      "issue": "No progression condition keywords found"
+    },
+    {
+      "file": "first-breath.md",
+      "line": 100,
+      "severity": "high",
+      "category": "progression",
+      "issue": "No progression condition keywords found"
+    },
+    {
+      "file": "first-breath.md",
+      "line": 71,
+      "severity": "low",
+      "category": "language",
+      "issue": "Suggestive \"you should\" \u2014 use direct imperative"
+    },
+    {
+      "file": "ingest-source.md",
+      "line": 1,
+      "severity": "medium",
+      "category": "config-header",
+      "issue": "No config header with language variables found"
+    },
+    {
+      "file": "ingest-source.md",
+      "line": 71,
+      "severity": "high",
+      "category": "progression",
+      "issue": "No progression condition keywords found"
+    },
+    {
+      "file": "manage-index.md",
+      "line": 1,
+      "severity": "medium",
+      "category": "config-header",
+      "issue": "No config header with language variables found"
+    },
+    {
+      "file": "manage-index.md",
+      "line": 41,
+      "severity": "high",
+      "category": "progression",
+      "issue": "No progression condition keywords found"
+    },
+    {
+      "file": "memory-guidance.md",
+      "line": 1,
+      "severity": "medium",
+      "category": "config-header",
+      "issue": "No config header with language variables found"
+    },
+    {
+      "file": "memory-guidance.md",
+      "line": 72,
+      "severity": "high",
+      "category": "progression",
+      "issue": "No progression condition keywords found"
+    }
+  ],
+  "summary": {
+    "total_issues": 13,
+    "by_severity": {
+      "critical": 0,
+      "high": 6,
+      "medium": 6,
+      "low": 1
+    }
+  }
+}

@@ -1,0 +1,186 @@
+{
+  "scanner": "structure-capabilities-prepass",
+  "script": "prepass-structure-capabilities.py",
+  "version": "1.0.0",
+  "skill_path": "_bmad-output/agent-kb-compiler",
+  "timestamp": "2026-04-07T20:15:07.441719+00:00",
+  "status": "warning",
+  "metadata": {
+    "frontmatter": {
+      "name": "agent-kb-compiler",
+      "description": "Knowledge Base Wiki Compiler \u2014 transforms raw indexed sources into a structured wiki with concept articles, summaries, backlinks, and Obsidian wiki-links. Memory agent that learns categorization preferences and writing style."
+    },
+    "sections": [
+      {
+        "level": 2,
+        "title": "The Three Laws",
+        "line": 10
+      },
+      {
+        "level": 2,
+        "title": "The Sacred Truth",
+        "line": 20
+      },
+      {
+        "level": 2,
+        "title": "On Activation",
+        "line": 24
+      },
+      {
+        "level": 2,
+        "title": "Session Close",
+        "line": 36
+      }
+    ],
+    "is_memory_agent": true
+  },
+  "prompt_details": [
+    {
+      "file": "capability-authoring.md",
+      "has_config_header": false,
+      "has_progression": false
+    },
+    {
+      "file": "compile-sources.md",
+      "has_config_header": false,
+      "has_progression": false
+    },
+    {
+      "file": "first-breath.md",
+      "has_config_header": true,
+      "has_progression": false
+    },
+    {
+      "file": "maintain-wiki.md",
+      "has_config_header": false,
+      "has_progression": false
+    },
+    {
+      "file": "manage-concepts.md",
+      "has_config_header": false,
+      "has_progression": false
+    },
+    {
+      "file": "memory-guidance.md",
+      "has_config_header": false,
+      "has_progression": false
+    },
+    {
+      "file": "write-connections.md",
+      "has_config_header": false,
+      "has_progression": false
+    }
+  ],
+  "memory_paths": [
+    "memory/agent-kb-compiler/"
+  ],
+  "issues": [
+    {
+      "file": "SKILL.md",
+      "line": 1,
+      "severity": "medium",
+      "category": "frontmatter",
+      "issue": "Description missing \"Use when...\" trigger phrase"
+    },
+    {
+      "file": "capability-authoring.md",
+      "line": 1,
+      "severity": "medium",
+      "category": "config-header",
+      "issue": "No config header with language variables found"
+    },
+    {
+      "file": "capability-authoring.md",
+      "line": 42,
+      "severity": "high",
+      "category": "progression",
+      "issue": "No progression condition keywords found"
+    },
+    {
+      "file": "compile-sources.md",
+      "line": 1,
+      "severity": "medium",
+      "category": "config-header",
+      "issue": "No config header with language variables found"
+    },
+    {
+      "file": "compile-sources.md",
+      "line": 67,
+      "severity": "high",
+      "category": "progression",
+      "issue": "No progression condition keywords found"
+    },
+    {
+      "file": "first-breath.md",
+      "line": 98,
+      "severity": "high",
+      "category": "progression",
+      "issue": "No progression condition keywords found"
+    },
+    {
+      "file": "maintain-wiki.md",
+      "line": 1,
+      "severity": "medium",
+      "category": "config-header",
+      "issue": "No config header with language variables found"
+    },
+    {
+      "file": "maintain-wiki.md",
+      "line": 63,
+      "severity": "high",
+      "category": "progression",
+      "issue": "No progression condition keywords found"
+    },
+    {
+      "file": "manage-concepts.md",
+      "line": 1,
+      "severity": "medium",
+      "category": "config-header",
+      "issue": "No config header with language variables found"
+    },
+    {
+      "file": "manage-concepts.md",
+      "line": 80,
+      "severity": "high",
+      "category": "progression",
+      "issue": "No progression condition keywords found"
+    },
+    {
+      "file": "memory-guidance.md",
+      "line": 1,
+      "severity": "medium",
+      "category": "config-header",
+      "issue": "No config header with language variables found"
+    },
+    {
+      "file": "memory-guidance.md",
+      "line": 62,
+      "severity": "high",
+      "category": "progression",
+      "issue": "No progression condition keywords found"
+    },
+    {
+      "file": "write-connections.md",
+      "line": 1,
+      "severity": "medium",
+      "category": "config-header",
+      "issue": "No config header with language variables found"
+    },
+    {
+      "file": "write-connections.md",
+      "line": 66,
+      "severity": "high",
+      "category": "progression",
+      "issue": "No progression condition keywords found"
+    }
+  ],
+  "summary": {
+    "total_issues": 14,
+    "by_severity": {
+      "critical": 0,
+      "high": 7,
+      "medium": 7,
+      "low": 0
+    }
+  }
+}
