@@ -6,28 +6,22 @@ LLM-powered knowledge base system using three BMAD Memory Agents to automate the
 
 | Agent | Role | Capabilities |
 |-------|------|-------------|
-| 📚 **Archivist** (Ingest) | Normalize raw sources into indexed Markdown | `[IN]` Ingest, `[BI]` Batch, `[IX]` Index |
+| 📚 **Archivist** (Ingest) | Normalize raw sources into indexed Markdown | `[AD]` Auto-Discover, `[IN]` Ingest, `[BI]` Batch, `[IX]` Index |
 | 🗺️ **Cartographer** (Compiler) | Compile wiki with summaries, concepts, connections | `[CS]` Compile, `[MC]` Concepts, `[MW]` Wiki, `[WC]` Connections, `[QW]` Query |
 | 🔍 **Inspector** (Linter) | Audit quality, fix issues, suggest improvements | `[HC]` Health, `[FX]` Fix, `[SA]` Suggest, `[CC]` Consistency |
 
 ## Quick Start
 
 ```bash
-# 1. Create a vault
-mkdir -p my-kb/{raw/{articles,papers,images},wiki/{summaries,concepts,connections},outputs}
+# One command sets up everything:
+./kb-init.sh ~/vaults/my-research "My Research"
 
-# 2. Install agents as Claude Code skills
-cp -r _bmad-output/agent-kb-ingest .claude/skills/
-cp -r _bmad-output/agent-kb-compiler .claude/skills/
-cp -r _bmad-output/agent-kb-linter .claude/skills/
-
-# 3. Initialize each agent (creates sanctum/memory)
-python3 .claude/skills/agent-kb-ingest/scripts/init-sanctum.py . .claude/skills/agent-kb-ingest
-python3 .claude/skills/agent-kb-compiler/scripts/init-sanctum.py . .claude/skills/agent-kb-compiler
-python3 .claude/skills/agent-kb-linter/scripts/init-sanctum.py . .claude/skills/agent-kb-linter
-
-# 4. Activate each agent — First Breath conversation starts
+# Then:
+cd ~/vaults/my-research
+claude   # agents are ready, First Breath starts on first activation
 ```
+
+Drop files into `raw/` and the Ingest Agent finds them automatically — no need to specify file paths.
 
 ## Pipeline
 

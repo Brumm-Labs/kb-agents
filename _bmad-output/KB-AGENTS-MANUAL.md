@@ -6,51 +6,87 @@ Technical reference for the three Knowledge Base agents: **Archivist** (Ingest),
 
 ## 1. Setup: New Knowledge Base
 
-### 1.1 Vault-Struktur anlegen
+### 1.1 Init-Script (empfohlen)
 
-Erstelle einen neuen Ordner (iCloud, Git, oder lokal) und lege diese Struktur an:
+Ein Befehl erstellt alles — Vault-Struktur, Agents, Sanctums:
+
+```bash
+./kb-init.sh ~/vaults/my-research "My Research"
+```
+
+Das Script:
+1. Erstellt die Vault-Struktur (`raw/`, `wiki/`, `outputs/`)
+2. Kopiert BMAD-Konfiguration
+3. Installiert alle 3 Agents als Claude Code Skills
+4. Initialisiert die Sanctums (Agent-Gedächtnis)
+5. Initialisiert ein Git-Repo
+
+Danach:
+
+```bash
+cd ~/vaults/my-research
+# Öffne den Ordner als Obsidian Vault
+claude   # Agents sind bereit — First Breath startet beim ersten Aktivieren
+```
+
+**Beispiele:**
+
+```bash
+# Lokal
+./kb-init.sh ~/vaults/ai-safety "AI Safety Research"
+
+# iCloud
+./kb-init.sh ~/Library/Mobile\ Documents/com~apple~CloudDocs/vaults/ml "Machine Learning"
+
+# Beliebiger Pfad
+./kb-init.sh /path/to/my-kb
+```
+
+### 1.2 Vault-Struktur (Referenz)
+
+Das Init-Script erstellt diese Struktur:
 
 ```
-my-research-kb/
-├── raw/
+my-research/
+├── raw/                    # Rohdaten hierhin droppen
 │   ├── articles/
 │   ├── papers/
 │   └── images/
-├── wiki/
+├── wiki/                   # Vom Compiler gepflegt
 │   ├── _index.md
 │   ├── summaries/
 │   ├── concepts/
 │   └── connections/
-├── outputs/
-└── .kb-config.yaml
-```
-
-```bash
-mkdir -p my-research-kb/{raw/{articles,papers,images},wiki/{summaries,concepts,connections},outputs}
-touch my-research-kb/wiki/_index.md
-touch my-research-kb/raw/_source-index.md
-```
-
-Öffne den Ordner als Obsidian Vault.
-
-### 1.2 Agents installieren
-
-Die Agents liegen in `_bmad-output/`. Um sie als Claude Code Skills zu nutzen, kopiere sie nach `.claude/skills/`:
-
-```bash
-cp -r _bmad-output/agent-kb-ingest .claude/skills/
-cp -r _bmad-output/agent-kb-compiler .claude/skills/
-cp -r _bmad-output/agent-kb-linter .claude/skills/
+├── outputs/                # Query-Ergebnisse, Slides, Reports
+├── _bmad/                  # Agent-Konfiguration + Gedächtnis
+├── .claude/skills/         # Installierte Agents
+├── .kb-config.yaml         # KB-Metadaten
+└── .gitignore
 ```
 
 ### 1.3 First Breath — Agents kennenlernen
 
-Jeder Agent muss einmalig initialisiert werden. Das Init-Script erstellt das Sanctum (Gedächtnis):
+Beim ersten Aktivieren startet jeder Agent eine Kennenlern-Konversation (First Breath). Er lernt deinen Namen, Vault-Pfad, Präferenzen und Workflow.
+
+**Reihenfolge empfohlen:** Ingest → Compiler → Linter
+
+### 1.4 Manuelles Setup (alternativ)
+
+Falls du das Init-Script nicht nutzen willst:
 
 ```bash
-python3 .claude/skills/agent-kb-ingest/scripts/init-sanctum.py . .claude/skills/agent-kb-ingest
-python3 .claude/skills/agent-kb-compiler/scripts/init-sanctum.py . .claude/skills/agent-kb-compiler
-python3 .claude/skills/agent-kb-linter/scripts/init-sanctum.py . .claude/skills/agent-kb-linter
+# Struktur anlegen
+mkdir -p my-kb/{raw/{articles,papers,images},wiki/{summaries,concepts,connections},outputs}
+
+# Agents kopieren
+cp -r _bmad-output/agent-kb-ingest my-kb/.claude/skills/
+cp -r _bmad-output/agent-kb-compiler my-kb/.claude/skills/
+cp -r _bmad-output/agent-kb-linter my-kb/.claude/skills/
+
+# Sanctums initialisieren
+python3 my-kb/.claude/skills/agent-kb-ingest/scripts/init-sanctum.py my-kb my-kb/.claude/skills/agent-kb-ingest
+python3 my-kb/.claude/skills/agent-kb-compiler/scripts/init-sanctum.py my-kb my-kb/.claude/skills/agent-kb-compiler
+python3 my-kb/.claude/skills/agent-kb-linter/scripts/init-sanctum.py my-kb my-kb/.claude/skills/agent-kb-linter
 ```
 
 Danach den jeweiligen Agent aktivieren — er startet die "First Breath"-Konversation, in der er deinen Namen, Vault-Pfad, Präferenzen und Workflow lernt.
@@ -61,35 +97,40 @@ Danach den jeweiligen Agent aktivieren — er startet die "First Breath"-Konvers
 
 ## 2. Täglicher Workflow: Daten rein
 
-### 2.1 Einzelne Quelle aufnehmen — `[IN]`
+### 2.1 Dateien droppen + Auto-Discover — `[AD]`
 
-Starte den Ingest Agent und gib ihm eine Quelle:
+**Das ist der Standardweg.** Droppe Dateien in `raw/` (oder Unterordner) und starte den Ingest Agent:
 
-- **Datei:** "Ingest `raw/articles/my-article.md`"
+```
+Du: (Ingest Agent aktivieren)
+Agent: "Hey Björn! Let me check for new sources... Found 3 new files in raw/. Processing them now."
+```
+
+Der Agent findet automatisch alle neuen Dateien die noch nicht im Index sind. Kein manuelles Angeben von Dateipfaden nötig.
+
+**Zwei Modi (wird beim First Breath festgelegt):**
+- **Auto-Mode:** Verarbeitet alles automatisch, zeigt Summary am Ende
+- **Review-Mode:** Zeigt Liste der neuen Dateien, du wählst welche verarbeitet werden
+
+**Unterstützte Formate:** `.md`, `.txt`, `.html`, `.pdf`, `.png`, `.jpg`, `.svg`
+
+### 2.2 Einzelne Quelle manuell — `[IN]`
+
+Für spezifische Quellen, z.B. URLs oder gepasteten Text:
+
 - **URL:** "Ingest https://example.com/article"
 - **Paste:** Kopiere den Text direkt in den Chat
-- **Bild:** "Ingest `raw/images/diagram.png`" (erstellt eine Beschreibungs-Datei)
+- **Bild:** "Ingest `raw/images/diagram.png`" (erstellt Beschreibungs-Datei)
 
-Der Agent:
-1. Normalisiert zu sauberem Markdown
-2. Fügt YAML-Frontmatter hinzu (Titel, Autor, Datum, Tags, Summary)
-3. Legt die Datei in den richtigen `raw/`-Unterordner
-4. Registriert im Source Index (`raw/_source-index.md`)
-5. Prüft auf Duplikate
-6. Spottet Verbindungen zu bestehendem Material
+### 2.3 Batch-Import — `[BI]`
 
-### 2.2 Batch-Import — `[BI]`
-
-Für mehrere Dateien auf einmal:
+Für einen spezifischen Ordner:
 
 "Batch-ingest alles in `raw/articles/new/`"
 
-Der Agent verarbeitet alle Dateien, zeigt einen Summary-Report:
-- X ingested
-- Y übersprungen (Duplikate)
-- Z brauchen Review
+Summary-Report: X ingested, Y übersprungen (Duplikate), Z brauchen Review
 
-### 2.3 Frontmatter-Schema
+### 2.4 Frontmatter-Schema
 
 Jede aufgenommene Quelle bekommt dieses Frontmatter:
 
@@ -108,7 +149,7 @@ related: []                      # wird vom Compiler gefüllt
 ---
 ```
 
-### 2.4 Index verwalten — `[IX]`
+### 2.5 Index verwalten — `[IX]`
 
 | Befehl | Was passiert |
 |--------|-------------|
@@ -239,7 +280,7 @@ Prüft:
 
 | Was | Agent | Wie | Dauer |
 |-----|-------|-----|-------|
-| Neue Quellen aufnehmen | Ingest | `[IN]` oder `[BI]` interaktiv | 5-15 min |
+| Neue Quellen aufnehmen | Ingest | Dateien droppen, Agent starten → `[AD]` läuft automatisch | 2-5 min |
 | Quellen kompilieren | Compiler | `[CS]` interaktiv | 10-20 min |
 
 ### Wöchentlich empfohlen

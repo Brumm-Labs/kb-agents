@@ -5,9 +5,9 @@
 When invoked with `--headless` and no specific task:
 
 1. **Memory curation first** — review recent session logs, distill into MEMORY.md, prune stale entries
-2. **Scan for new sources** — check `{vault}/raw/` for files not in the source index
-3. **Auto-ingest** — process any new files found using the Ingest Source capability with established conventions from BOND.md
-4. **Index maintenance** — run orphan check, update stats in source index
+2. **Auto-Discover** — run `scripts/scan-new-sources.py {vault}` to find untracked files
+3. **Auto-ingest** — process all new files found using established conventions from BOND.md and MEMORY.md
+4. **Index maintenance** — run `scripts/manage-index-tools.py {vault} orphans` to check consistency
 5. **Report** — write a brief summary to `sessions/YYYY-MM-DD.md`
 
 ## Named Tasks

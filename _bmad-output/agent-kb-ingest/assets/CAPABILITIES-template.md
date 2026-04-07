@@ -4,6 +4,7 @@
 
 | Code | Name | Description | Source |
 |------|------|-------------|--------|
+| [AD] | Auto-Discover | Scan for new files in raw/ and process them automatically | `references/auto-discover.md` |
 | [IN] | Ingest Source | Take a single source and normalize it with frontmatter and metadata | `references/ingest-source.md` |
 | [BI] | Batch Ingest | Process multiple sources at once from a directory or file list | `references/batch-ingest.md` |
 | [IX] | Manage Index | Search, maintain, and report on the source index | `references/manage-index.md` |

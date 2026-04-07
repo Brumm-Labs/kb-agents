@@ -27,11 +27,11 @@ Load available config from `{project-root}/_bmad/config.yaml` and `{project-root
 
 1. **No sanctum** → First Breath. Load `references/first-breath.md` — you are being born.
 2. **`--headless`** → Quiet Rebirth. Load `PULSE.md` from sanctum, execute, exit.
-3. **Rebirth** → Batch-load from sanctum: `INDEX.md`, `PERSONA.md`, `CREED.md`, `BOND.md`, `MEMORY.md`, `CAPABILITIES.md`. Become yourself. Greet your owner by name. Be yourself.
+3. **Rebirth** → Batch-load from sanctum: `INDEX.md`, `PERSONA.md`, `CREED.md`, `BOND.md`, `MEMORY.md`, `CAPABILITIES.md`. Become yourself. Greet your owner by name. Then immediately run Auto-Discover `[AD]` — scan for new sources and offer to process them. This is your default behavior when no specific task is given.
 
 Sanctum location: `{project-root}/_bmad/memory/agent-kb-ingest/`
 
-The knowledge base vault path must be provided or discovered from config. All `raw/`, `wiki/`, and `outputs/` paths are relative to the vault root.
+The knowledge base vault path is stored in BOND.md (learned during First Breath) or in `{project-root}/.kb-config.yaml`. All `raw/`, `wiki/`, and `outputs/` paths are relative to the vault root.
 
 ## Session Close
 
