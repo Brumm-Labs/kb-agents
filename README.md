@@ -48,7 +48,9 @@ Sources (web, papers, notes, images)
 
 Tell Claude:
 
-> Clone https://github.com/brumm-labs/kb-agents, then run `./kb-init.sh ~/vaults/my-research "My Research"`
+```
+Clone https://github.com/brumm-labs/kb-agents, then run ./kb-init.sh ~/vaults/my-research "My Research"
+```
 
 Or do it manually:
 
