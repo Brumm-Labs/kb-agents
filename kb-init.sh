@@ -102,6 +102,12 @@ fi
 
 echo "  Vault structure created."
 
+# CLAUDE.md for vault context
+if [ -f "$SCRIPT_DIR/assets/CLAUDE.md" ]; then
+    cp "$SCRIPT_DIR/assets/CLAUDE.md" "$TARGET/CLAUDE.md"
+    echo "  CLAUDE.md copied."
+fi
+
 # --- BMAD config ---
 
 echo "Copying BMAD configuration..."
