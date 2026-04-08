@@ -40,9 +40,11 @@ Sources (web, papers, notes, images)
 
 ### Prerequisites
 
-- [Claude Code](https://claude.ai/claude-code) installed
+- [Claude Code](https://claude.ai/claude-code) or [Claude Desktop](https://claude.ai/download)
 - Python 3.10+
 - [Obsidian](https://obsidian.md) (recommended, for viewing your wiki)
+
+> **Hint:** Not sure if you have the prerequisites? Just ask Claude to install the dependencies for you.
 
 ### Setup
 

@@ -4,10 +4,12 @@
 
 | Requirement | Version | Why |
 |---|---|---|
-| [Claude Code](https://claude.ai/claude-code) | Latest | LLM runtime for agents |
+| [Claude Code](https://claude.ai/claude-code) or [Claude Desktop](https://claude.ai/download) | Latest | LLM runtime for agents |
 | Python | 3.10+ | Helper scripts for deterministic operations |
 | Git | Any | Version control for your knowledge base |
 | [Obsidian](https://obsidian.md) | Any (optional) | Viewing and browsing your wiki |
+
+> **Hint:** Not sure if you have the prerequisites? Just ask Claude to install the dependencies for you.
 
 ## Installation
 
