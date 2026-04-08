@@ -17,6 +17,28 @@ set -euo pipefail
 SCRIPT_DIR="$(cd "$(dirname "$0")" && pwd)"
 AGENTS_DIR="$SCRIPT_DIR/_bmad-output"
 
+# --- Pre-flight checks ---
+
+if ! command -v python3 &>/dev/null; then
+    echo "ERROR: python3 is required but not found on PATH."
+    echo "Install Python 3.10+ and try again."
+    exit 1
+fi
+
+PYTHON_VERSION=$(python3 -c 'import sys; print(f"{sys.version_info.major}.{sys.version_info.minor}")')
+PYTHON_MAJOR=$(echo "$PYTHON_VERSION" | cut -d. -f1)
+PYTHON_MINOR=$(echo "$PYTHON_VERSION" | cut -d. -f2)
+if [ "$PYTHON_MAJOR" -lt 3 ] || { [ "$PYTHON_MAJOR" -eq 3 ] && [ "$PYTHON_MINOR" -lt 10 ]; }; then
+    echo "ERROR: Python 3.10+ required, found $PYTHON_VERSION"
+    exit 1
+fi
+
+if [ ! -d "$AGENTS_DIR" ]; then
+    echo "ERROR: Agent directory not found at $AGENTS_DIR"
+    echo "Make sure you're running this from the kb-agents repository root."
+    exit 1
+fi
+
 # --- Args ---
 
 if [ $# -lt 1 ]; then

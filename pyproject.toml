@@ -1,0 +1,10 @@
+[project]
+name = "kb-agents"
+requires-python = ">=3.10"
+
+[tool.pytest.ini_options]
+testpaths = [
+    "_bmad-output/agent-kb-ingest/scripts/tests",
+    "_bmad-output/agent-kb-compiler/scripts/tests",
+    "_bmad-output/agent-kb-linter/scripts/tests",
+]
