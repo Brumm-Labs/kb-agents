@@ -1,0 +1,45 @@
+{
+  "agent": {
+    "name": "agent-kb-ingest",
+    "displayName": "Archivist",
+    "icon": "📚",
+    "title": "Knowledge Base Ingest Agent",
+    "type": "memory",
+    "evolvable": true
+  },
+  "grade": "Good",
+  "narrative": "No critical issues. Strong sanctum architecture, zero prompt waste, well-seeded templates. Primary gaps: missing PULSE infrastructure for headless mode and structural completeness of capability files.",
+  "capabilities": [
+    {"code": "IN", "name": "Ingest Source", "status": "good", "notes": "Full outcome structure with Memory Integration + After Session"},
+    {"code": "BI", "name": "Batch Ingest", "status": "warning", "notes": "No progression conditions"},
+    {"code": "IX", "name": "Manage Index", "status": "warning", "notes": "Rebuild/Orphan/Stats operations are scriptable"}
+  ],
+  "themes": [
+    {"title": "PULSE-template Missing Despite Headless Path", "severity": "high", "observations": 2, "description": "On Activation declares --headless path but PULSE-template.md does not exist"},
+    {"title": "Progression Signals Missing Across Capabilities", "severity": "high", "observations": 6, "description": "All capability files lack Done When sections or next-step guidance"},
+    {"title": "Script Infrastructure Gaps", "severity": "high", "observations": 4, "description": "init-sanctum.py lacks argparse, JSON output; no tests directory"},
+    {"title": "Connection-Surfacing Capability Gap", "severity": "medium", "observations": 2, "description": "CREED standing order promises connection surfacing but no capability delivers it"},
+    {"title": "Scriptable Operations in Manage Index", "severity": "medium", "observations": 3, "description": "Rebuild, Orphan Check, Stats are deterministic and should be scripts"}
+  ],
+  "strengths": [
+    "Lean bootloader (39 lines, 18 content)",
+    "Zero waste patterns",
+    "Evocative domain-specific identity seed",
+    "CREED with real domain-adapted standing orders (Tag Vigilance)",
+    "Well-designed duplicate detection approach",
+    "Frontmatter schema is genuine domain knowledge"
+  ],
+  "sanctum": {
+    "status": "excellent",
+    "templates_present": 6,
+    "templates_expected": 6,
+    "gaps": ["PULSE-template.md absent"]
+  },
+  "summary": {
+    "total_opportunities": 8,
+    "high": 3,
+    "medium": 3,
+    "low": 2,
+    "broken": 0
+  }
+}

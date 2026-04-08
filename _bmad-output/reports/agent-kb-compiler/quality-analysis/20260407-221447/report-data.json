@@ -1,0 +1,46 @@
+{
+  "agent": {
+    "name": "agent-kb-compiler",
+    "displayName": "Cartographer",
+    "icon": "🗺️",
+    "title": "Knowledge Base Wiki Compiler",
+    "type": "memory",
+    "evolvable": true
+  },
+  "grade": "Good",
+  "narrative": "No critical issues. Strong identity, lean architecture, zero waste patterns. Well-designed compilation pipeline. Primary gaps: headless infrastructure and missing query capability.",
+  "capabilities": [
+    {"code": "CS", "name": "Compile Sources", "status": "good", "notes": "Full outcome structure, Memory Integration + After Session"},
+    {"code": "MC", "name": "Manage Concepts", "status": "good", "notes": "Rich operation set (create, update, promote, merge, split)"},
+    {"code": "MW", "name": "Maintain Wiki", "status": "warning", "notes": "Link checking and index rebuild are scriptable"},
+    {"code": "WC", "name": "Write Connections", "status": "good", "notes": "Excellent connection taxonomy (5 types)"}
+  ],
+  "themes": [
+    {"title": "Headless Mode Declared But Non-Functional", "severity": "high", "observations": 3, "description": "PULSE-template.md missing; --headless silently fails"},
+    {"title": "Missing Search/Query Capability", "severity": "medium", "observations": 2, "description": "Agent builds a wiki it can't help query"},
+    {"title": "First Breath Needs Progression Gates", "severity": "medium", "observations": 2, "description": "98-line discovery flow with no completion signals"},
+    {"title": "capability-authoring.md Needs Memory Lifecycle Hooks", "severity": "medium", "observations": 2, "description": "Missing Memory Integration and After Session sections"},
+    {"title": "Script Opportunities for Deterministic Operations", "severity": "medium", "observations": 3, "description": "check-wiki-links.py, concept-inventory.py, list-uncompiled.py"}
+  ],
+  "strengths": [
+    "Lean bootloader with evocative identity seed",
+    "Standout CREED: Synthesis over aggregation, Connections are the product",
+    "All 4 core capabilities have Memory Integration + After Session",
+    "Rich connection taxonomy (convergence, contradiction, evolution, pattern, comparison)",
+    "Concept lifecycle (stub → draft → mature)",
+    "Zero waste patterns across all files"
+  ],
+  "sanctum": {
+    "status": "excellent",
+    "templates_present": 6,
+    "templates_expected": 6,
+    "gaps": ["PULSE-template.md absent"]
+  },
+  "summary": {
+    "total_opportunities": 8,
+    "high": 1,
+    "medium": 5,
+    "low": 2,
+    "broken": 0
+  }
+}

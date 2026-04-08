@@ -1,0 +1,46 @@
+{
+  "agent": {
+    "name": "agent-kb-linter",
+    "displayName": "Inspector",
+    "icon": "🔍",
+    "title": "Knowledge Base Wiki Linter",
+    "type": "memory",
+    "evolvable": true
+  },
+  "grade": "Good",
+  "narrative": "No critical issues. Excellent CREED template. Clean bootloader, zero path violations. Primary gaps: headless infrastructure, missing scripts for deterministic operations, and no progression signals.",
+  "capabilities": [
+    {"code": "HC", "name": "Health Check", "status": "warning", "notes": "Deterministic checks should be scripts; high token savings"},
+    {"code": "FX", "name": "Fix Issues", "status": "good", "notes": "Excellent three-tier taxonomy (auto-fix, confirm, decide)"},
+    {"code": "SA", "name": "Suggest Articles", "status": "warning", "notes": "No draft-offer follow-through"},
+    {"code": "CC", "name": "Consistency Check", "status": "good", "notes": "Thorough check categories"}
+  ],
+  "themes": [
+    {"title": "Capability Completion Gap", "severity": "high", "observations": 9, "description": "Zero progression/completion signals across all capability files"},
+    {"title": "Headless Mode Non-Functional", "severity": "high", "observations": 3, "description": "PULSE-template.md missing; Inspector is natural candidate for scheduled health checks"},
+    {"title": "High-Value Script Opportunity", "severity": "high", "observations": 1, "description": "prepass-wiki-health.py could save 800-1,500 tokens/invocation (66K-141K/year)"},
+    {"title": "Script Infrastructure Immaturity", "severity": "high", "observations": 4, "description": "No test directory, no unit tests, no argparse, no JSON output"},
+    {"title": "Capability Scope Gaps", "severity": "medium", "observations": 3, "description": "No search/query, no pipeline awareness, suggest-articles lacks follow-through"}
+  ],
+  "strengths": [
+    "CREED excellence: Signal over noise, Always include the fix, Trends over snapshots",
+    "Domain-perfect standing orders (False-Positive Learning)",
+    "fix-issues.md three-tier taxonomy is elegant",
+    "Concrete actionable anti-patterns",
+    "Zero waste patterns, zero path violations",
+    "Lean correct bootloader"
+  ],
+  "sanctum": {
+    "status": "excellent",
+    "templates_present": 6,
+    "templates_expected": 6,
+    "gaps": ["PULSE-template.md absent"]
+  },
+  "summary": {
+    "total_opportunities": 9,
+    "high": 4,
+    "medium": 3,
+    "low": 2,
+    "broken": 0
+  }
+}
