@@ -106,4 +106,4 @@ See [CONTRIBUTING.md](CONTRIBUTING.md) for guidelines.
 
 ---
 
-Built with ❤️ by [Brumm Labs](https://github.com/brumm-labs)
+Built with 🤖 by [Brumm Labs](https://github.com/brumm-labs)
