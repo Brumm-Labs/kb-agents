@@ -32,6 +32,10 @@ Agents support headless mode for automated background operations.
 | Linter | `-H:consistency` | Deep consistency analysis |
 | Linter | `-H:suggest` | Generate article suggestions |
 
+### Scheduling With Claude Cowork
+
+If you're using Claude Desktop, you can use **Cowork** to schedule recurring agent tasks instead of cron. Open a Cowork session with your vault folder, and use the `/schedule` command to set up automated ingest, compile, or health check runs.
+
 ### Headless Mode Tips
 
 - Chain ingest → compile for a complete daily pipeline

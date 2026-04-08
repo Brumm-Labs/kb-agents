@@ -49,8 +49,11 @@ Sources (web, papers, notes, images)
 Tell Claude:
 
 ```
-Clone https://github.com/brumm-labs/kb-agents, then run ./kb-init.sh ~/vaults/my-research "My Research"
+Clone https://github.com/brumm-labs/kb-agents,
+then run ./kb-init.sh ~/vaults/my-research "My Research"
 ```
+
+`~/vaults/my-research` is the path where your knowledge base will be created — change it to wherever you want. `"My Research"` is the display name for your KB.
 
 Or do it manually:
 
@@ -60,14 +63,22 @@ cd kb-agents
 ./kb-init.sh ~/vaults/my-research "My Research"
 ```
 
-Then:
+Then start working with your agents:
+
+**Claude Code CLI:**
 
 ```bash
 cd ~/vaults/my-research
-claude  # agents are ready — First Breath starts on first activation
+claude
 ```
 
-Open the folder as an Obsidian vault, drop files into `raw/`, and ask the Ingest Agent to process them. Or just say "scan for new sources" — it finds them automatically.
+**Claude Desktop (Cowork):**
+
+1. Open Claude Desktop and start a new Cowork session
+2. Add your vault folder (`~/vaults/my-research`) as the working directory
+3. Start interacting with the agents
+
+On first activation, each agent starts a **First Breath** conversation to learn your preferences. After that, open the folder as an Obsidian vault, drop files into `raw/`, and say "scan for new sources" — the agents take it from there.
 
 ## Documentation
 

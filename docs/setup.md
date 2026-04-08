@@ -15,7 +15,12 @@
 
 Open Claude Code and say:
 
-> Clone https://github.com/brumm-labs/kb-agents, then run `./kb-init.sh ~/vaults/my-research "My Research"`
+```
+Clone https://github.com/brumm-labs/kb-agents,
+then run ./kb-init.sh ~/vaults/my-research "My Research"
+```
+
+`~/vaults/my-research` is the path where your knowledge base will be created — change it to wherever you want. `"My Research"` is the display name for your KB.
 
 Claude will clone the repo, run the setup script, and your knowledge base is ready.
 
@@ -75,6 +80,8 @@ When you activate each agent for the first time, it starts a **First Breath** co
 
 **Recommended order:** Ingest → Compiler → Linter
 
+**Claude Code CLI:**
+
 ```bash
 cd ~/vaults/my-research
 claude
@@ -82,6 +89,13 @@ claude
 # Then: "Activate the Compiler Agent" → complete First Breath
 # Then: "Activate the Linter Agent" → complete First Breath
 ```
+
+**Claude Desktop (Cowork):**
+
+1. Open Claude Desktop and start a new Cowork session
+2. Add your vault folder (`~/vaults/my-research`) as the working directory
+3. Say "Activate the Ingest Agent" to begin First Breath
+4. Repeat for Compiler and Linter agents
 
 After First Breath, each agent remembers your preferences across sessions. The memory is stored in `_bmad/memory/<agent-name>/`.
 
