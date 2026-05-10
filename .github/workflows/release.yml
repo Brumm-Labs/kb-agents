@@ -23,11 +23,11 @@ jobs:
           VERSION=$(echo "${{ github.event.pull_request.title }}" | grep -oP 'v\d+\.\d+\.\d+' || echo "")
           if [ -z "$VERSION" ]; then
             echo "No version found in PR title, skipping release"
-            exit 1
           fi
           echo "version=$VERSION" >> $GITHUB_OUTPUT
 
       - name: Create GitHub Release
+        if: steps.version.outputs.version != ''
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
